@@ -1,11 +1,12 @@
-import { allTickers } from "./data/allTickers";
+import { allTickers } from "./data/allTickers.js";
 
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const currentTab = tabs[0];
+  console.log(currentTab);
   if (currentTab && currentTab.url) {
     const url = new URL(currentTab.url);
     const pathParts = url.pathname.split("/");
-
+    console.log("ugggg")
     for (const part of pathParts) {
       const cleaned = part.toUpperCase();
       if (allTickers.has(cleaned)) {
