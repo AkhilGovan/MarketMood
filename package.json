@@ -1,0 +1,16 @@
+{
+  "name": "marketmood",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chrome-types": "^0.1.349",
+    "typescript": "^5.8.3"
+  }
+}
