@@ -11,7 +11,7 @@ const tickers = fs
     .map((t) => t.trim())
     .filter((t) => t.length > 0);
 
-const tsContent = `export const ALL_TICKERS = new Set<string>([
+const tsContent = `export const allTICKERS = new Set<string>([
 ${tickers.map((t) => `  "${t}"`).join(",\n")}
 ]);
 `;

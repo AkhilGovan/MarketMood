@@ -4,7 +4,8 @@
   "description": "## Overview",
   "main": "popup.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:tickers": "node scripts/generateTickers.js"
   },
   "keywords": [],
   "author": "",
