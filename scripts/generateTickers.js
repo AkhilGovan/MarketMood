@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Paths
-const inputPath = path.join(__dirname, "../tickers/all/all_tickers.txt");
+const inputPath = path.join(__dirname, "../tickers/all/allTickers.txt");
 const outputPath = path.join(__dirname, "../src/data/allTickers.ts");
 
 const tickers = fs
