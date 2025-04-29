@@ -4,7 +4,8 @@ on:
   schedule:
     - cron: "0 0 * * *"  # Every day at midnight UTC
   workflow_dispatch:     # Manual trigger via GitHub UI
-
+permissions:
+  contents: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -76,4 +77,4 @@ jobs:
           git config user.email github-actions@github.com
           git add tickers/
           git commit -m "Update tickers list"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AkhilGovan/MarketMood.git
