@@ -1,0 +1,53 @@
+name: Download Latest Stocks
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Every day at midnight UTC
+  workflow_dispatch:     # Manual trigger via GitHub UI
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install jq
+        run: sudo apt-get install jq -y
+
+      - name: Create directories
+        run: |
+          mkdir -p tickers/nasdaq
+          mkdir -p tickers/nyse
+          mkdir -p tickers/amex
+          mkdir -p tickers/all
+
+      - name: Download NASDAQ tickers
+        run: |
+          curl -s -A "Mozilla/5.0" "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nasdaq&download=true" > tickers/nasdaq/nasdaq.json
+          cat tickers/nasdaq/nasdaq.json | jq '[.data.rows[].symbol]' > tickers/nasdaq/tickers.json
+          cat tickers/nasdaq/tickers.json | jq -r '.[]' > tickers/nasdaq/tickers.txt
+
+      - name: Download NYSE tickers
+        run: |
+          curl -s -A "Mozilla/5.0" "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nyse&download=true" > tickers/nyse/nyse.json
+          cat tickers/nyse/nyse.json | jq '[.data.rows[].symbol]' > tickers/nyse/tickers.json
+          cat tickers/nyse/tickers.json | jq -r '.[]' > tickers/nyse/tickers.txt
+
+      - name: Download AMEX tickers
+        run: |
+          curl -s -A "Mozilla/5.0" "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=amex&download=true" > tickers/amex/amex.json
+          cat tickers/amex/amex.json | jq '[.data.rows[].symbol]' > tickers/amex/tickers.json
+          cat tickers/amex/tickers.json | jq -r '.[]' > tickers/amex/tickers.txt
+
+      - name: Combine all tickers
+        run: |
+          cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt | sort -u > tickers/all/all_tickers.txt
+
+      - name: Commit and push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add tickers/
+          git commit -m "Update tickers list"
+          git push
