@@ -1,4 +1,4 @@
-export const allTICKERS = new Set<string>([
+export const allTickers = new Set<string>([
   "A",
   "AA",
   "AACB",
