@@ -65,10 +65,27 @@ jobs:
           cat tickers/amex/amex.json | jq '[.data.rows[].symbol]' > tickers/amex/tickers.json
           cat tickers/amex/tickers.json | jq -r '.[]' > tickers/amex/tickers.txt
 
+      # INDEX FUNDS / ETFs
+      - name: Download Index Funds / ETFs
+        run: |
+          mkdir -p tickers/etf
+
+          curl -L -H "Accept: application/json" \
+               -H "Origin: https://www.nasdaq.com" \
+               -H "Referer: https://www.nasdaq.com/" \
+               -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
+               "https://api.nasdaq.com/api/screener/etf?tableonly=true&limit=2000&offset=0&download=true" \
+               --http1.1 \
+               -o tickers/etf/etf.json
+
+          cat tickers/etf/etf.json | jq '[.data.rows[].symbol]' > tickers/etf/tickers.json
+          cat tickers/etf/tickers.json | jq -r '.[]' > tickers/etf/tickers.txt
+
       # Combine all tickers
       - name: Combine all tickers
         run: |
-          cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt | sort -u > tickers/all/allTickers.txt
+          cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt tickers/etf/tickers.txt | sort -u > tickers/all/allTickers.txt
+ 
 
       # Commit and push changes
       - name: Commit and push

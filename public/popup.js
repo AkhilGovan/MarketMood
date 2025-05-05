@@ -7,25 +7,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { allTickers } from "./data/allTickers.js";
 import { getCurrentTab } from "./utils/tabs.js";
-function extractTickerFromPath(pathname) {
-    const pathParts = pathname.split("/");
-    for (const part of pathParts) {
-        const cleaned = part.toUpperCase();
-        if (allTickers.has(cleaned)) {
-            return cleaned;
-        }
-    }
-    return null;
-}
+import { extractTickerFromUrl } from "./URL/extractTickerFromUrl.js";
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const currentTab = yield getCurrentTab();
         if (!(currentTab === null || currentTab === void 0 ? void 0 : currentTab.url))
             return;
         const url = new URL(currentTab.url);
-        const ticker = extractTickerFromPath(url.pathname);
+        const ticker = extractTickerFromUrl(url);
         if (ticker) {
             const resultDiv = document.getElementById("ticker-result");
             if (resultDiv) {
