@@ -6,7 +6,7 @@
     "strict": true,
     "outDir": "public",
     "rootDir": "src",
-    "types": ["chrome-types"],
+    "types": ["chrome-types", "jest"],
     "esModuleInterop": true,
     "skipLibCheck": true
   },
