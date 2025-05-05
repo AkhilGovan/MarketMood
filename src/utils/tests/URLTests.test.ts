@@ -1,4 +1,4 @@
-import { extractTickerFromUrl } from "./ticker.js";
+import { extractTickerFromUrl } from "../../URL/extractTickerFromUrl";
 
 const mockAllTickers = new Set(["TSLA", "AAPL", "SPY", "NVDA", "PCYO", "X"]);
 (globalThis as any).allTickers = mockAllTickers;
@@ -20,7 +20,7 @@ describe("extractTickerFromUrl", () => {
         ["https://example.com", null],
     ];
 
-    it.each(cases)("extracts %s → %s", (urlStr, expected) => {
+    it.each(cases)("extracts %s %s", (urlStr, expected) => {
         const url = new URL(urlStr);
         const result = extractTickerFromUrl(url);
         expect(result).toBe(expected);
