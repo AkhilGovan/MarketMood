@@ -5,6 +5,8 @@
   "manifest_version": 3,
   "action": {
     "default_popup": "public/MarketMood.html",
-    "default_icon": "public/hello_extensions.png"
-  }
+    "default_icon": "public/icons/hello_extensions.png"
+  },
+  "permissions": ["tabs"],
+  "host_permissions": ["<all_urls>"]
 }

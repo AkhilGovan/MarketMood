@@ -4,12 +4,14 @@
   "description": "## Overview",
   "main": "popup.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:tickers": "node scripts/generateTickers.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chrome": "^0.0.319",
     "chrome-types": "^0.1.349",
     "typescript": "^5.8.3"
   }
