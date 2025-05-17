@@ -1,4 +1,4 @@
-import { allTickers } from "../data/allTickers";
+import { allTickers } from "../data/allTickers.js";
 export function extractTickerFromUrl(url) {
     const pathParts = url.pathname.split("/");
     // Simple Paths /Ticker/

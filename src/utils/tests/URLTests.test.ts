@@ -1,4 +1,4 @@
-import { extractTickerFromUrl } from "../../URL/extractTickerFromUrl";
+import { extractTickerFromUrl } from "../../RetrieveTickers/extractTickerFromUrl";
 
 const mockAllTickers = new Set(["TSLA", "AAPL", "SPY", "NVDA", "PCYO", "X"]);
 (globalThis as any).allTickers = mockAllTickers;

@@ -1,5 +1,5 @@
 import { getCurrentTab } from "./utils/tabs.js";
-import { extractTickerFromUrl } from "./URL/extractTickerFromUrl.js";
+import { extractTickerFromUrl } from "./RetrieveTickers/extractTickerFromUrl.js";
 
 
 async function run() {
