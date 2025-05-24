@@ -4,11 +4,12 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
-    "outDir": "public",
-    "rootDir": "src",
-    "types": ["chrome-types", "jest"],
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "jsx": "react-jsx",
+    "types": ["chrome"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"]
 }
