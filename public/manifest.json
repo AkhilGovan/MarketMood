@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "MarketMood",
+  "version": "1.0",
+  "description": "Get sentiment data for stocks while browsing.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "default.png"
+  },
+  "permissions": ["tabs"],
+  "host_permissions": ["<all_urls>"]
+}
