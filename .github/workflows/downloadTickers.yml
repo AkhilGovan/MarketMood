@@ -86,7 +86,7 @@ jobs:
       # Combine all
       - name: Combine all tickers
         run: |
-          cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt tickers/etf/tickers.txt \
+          cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt \
             | sort -u > tickers/all/allTickers.txt
 
       # Commit and push
