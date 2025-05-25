@@ -34,7 +34,7 @@ Traders and investors must dig through forums, Twitter feeds, and dashboards —
 
 ## How MarketMood Works
 
-- A daily GitHub Action automatically fetches the latest NASDAQ, NYSE, AMEX, and ETF tickers and stores them in a preprocessed set, enabling constant-time (`O(1)`) ticker validation during browsing.
+- A daily GitHub Action automatically fetches the latest NASDAQ, NYSE, AMEX, and ETF tickers and stores them in a preprocessed set. This enables constant-time ticker validation during browsing.
 
 
 ---
