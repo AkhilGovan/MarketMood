@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate:tickers": "ts-node scripts/generateTickers.ts"
+    "generate:tickers": "ts-node-esm scripts/generateTickers.ts"
   },
   "dependencies": {
     "@types/node": "^22.5.5",
