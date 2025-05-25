@@ -72,12 +72,13 @@ jobs:
       - name: Download Index Funds / ETFs
         run: |
           curl -L -H "Accept: application/json" \
-            -H "Origin: https://www.nasdaq.com" \
-            -H "Referer: https://www.nasdaq.com/" \
-            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
-            "https://api.nasdaq.com/api/screener/etf?tableonly=true&limit=2000&offset=0&download=true" \
-            --http1.1 \
-            -o tickers/etf/etf.json
+          -H "Origin: https://www.nasdaq.com" \
+          -H "Referer: https://www.nasdaq.com/" \
+          -A "Mozilla/5.0" \
+          "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&type=ETF&download=true" \
+          --http1.1 \
+          -o tickers/etf/etf.json
+
 
           cat tickers/etf/etf.json | jq '[.data.rows[].symbol]' > tickers/etf/tickers.json
           cat tickers/etf/tickers.json | jq -r '.[]' > tickers/etf/tickers.txt
