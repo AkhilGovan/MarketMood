@@ -102,4 +102,4 @@ jobs:
         run: npm ci
 
       - name: Generate allTickers.ts
-        run: npx ts-node scripts/generateTickers.ts
+        run: npx ts-node scripts/generateTickerSet.ts
