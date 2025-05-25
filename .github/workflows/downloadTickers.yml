@@ -89,7 +89,7 @@ jobs:
           cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt \
             | sort -u > tickers/all/allTickers.txt
 
-      # Commit and push
+      # Commit and push tickers, then generate TypeScript Set
       - name: Commit and push
         run: |
           git config user.name github-actions
@@ -97,3 +97,9 @@ jobs:
           git add tickers/
           git commit -m "Update tickers list"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AkhilGovan/MarketMood.git
+
+      - name: Install dependencies for ticker generation
+        run: npm ci
+
+      - name: Generate allTickers.ts
+        run: npx ts-node scripts/generateTickers.ts
