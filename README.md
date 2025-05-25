@@ -1,4 +1,4 @@
-# 📈 MarketMood — Real-Time Consumer Sentiment for Financial News
+# MarketMood — Real-Time Consumer Sentiment for Financial News
 
 ## Overview
 
@@ -18,7 +18,7 @@ Traders and investors must dig through forums, Twitter feeds, and dashboards —
 
 ---
 
-## 🔧 What MarketMood Does
+## What MarketMood Does
 
 - 🔎 **Detects** stock tickers and option contracts while browsing financial sites.
 - ⚡ **Fetches** live sentiment scores and recent news from trusted APIs.
@@ -27,6 +27,15 @@ Traders and investors must dig through forums, Twitter feeds, and dashboards —
   - 🟡 Neutral  
   - 🔴 Negative
 - 📌 **Displays** detailed sentiment breakdowns in a popup window.
+
+---
+
+---
+
+## How MarketMood Works
+
+- A daily GitHub Action automatically fetches the latest NASDAQ, NYSE, AMEX, and ETF tickers and stores them in a preprocessed set, enabling constant-time (`O(1)`) ticker validation during browsing.
+
 
 ---
 
