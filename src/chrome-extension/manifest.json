@@ -5,6 +5,8 @@
     "action" : {
       "default_popup": "popup.html"
   },
+  "permissions": ["tabs"],
+  "host_permissions": ["<all_urls>"],
   "options_page": "options.html",
   "description": "This is the description of your extension",
   "icons": {
