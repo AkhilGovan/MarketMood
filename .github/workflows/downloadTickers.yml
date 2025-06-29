@@ -31,7 +31,7 @@ jobs:
           curl -L -H "Accept: application/json" \
             -H "Origin: https://www.nasdaq.com" \
             -H "Referer: https://www.nasdaq.com/" \
-            -A "Mozilla/5.0" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
             "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nasdaq&download=true" \
             --http1.1 \
             -o tickers/nasdaq/nasdaq.json
@@ -45,7 +45,7 @@ jobs:
           curl -L -H "Accept: application/json" \
             -H "Origin: https://www.nasdaq.com" \
             -H "Referer: https://www.nasdaq.com/" \
-            -A "Mozilla/5.0" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
             "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nyse&download=true" \
             --http1.1 \
             -o tickers/nyse/nyse.json
@@ -59,7 +59,7 @@ jobs:
           curl -L -H "Accept: application/json" \
             -H "Origin: https://www.nasdaq.com" \
             -H "Referer: https://www.nasdaq.com/" \
-            -A "Mozilla/5.0" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
             "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=amex&download=true" \
             --http1.1 \
             -o tickers/amex/amex.json
@@ -96,4 +96,5 @@ jobs:
           git config user.email github-actions@github.com
           git add src/data/allTickers.ts
           git commit -m "Update generated ticker set" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AkhilGovan/MarketMood.git
+          git pull --rebase
+          git push
