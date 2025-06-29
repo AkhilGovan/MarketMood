@@ -32,7 +32,7 @@ export function Popup() {
         <p>Loading current tab URL...</p>
       )}
       <div>
-        Ticker Symbol Found!
+        Ticker Symbol Found! <br/>
         {ticker}
       </div>
     </div>
