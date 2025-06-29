@@ -31,7 +31,7 @@ jobs:
           curl -L -H "Accept: application/json" \
             -H "Origin: https://www.nasdaq.com" \
             -H "Referer: https://www.nasdaq.com/" \
-            -A "Mozilla/5.0" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
             "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nasdaq&download=true" \
             --http1.1 \
             -o tickers/nasdaq/nasdaq.json
