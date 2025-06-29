@@ -24,16 +24,24 @@ export function Popup() {
   }, [currentUrl]);
 
   return (
-    <div>
-      <h1>MarketMood</h1>
+    <div className="min-w-[300px] p-4 bg-white text-gray-800">
+      <h1 className="text-xl font-bold mb-2 text-blue-600">📈 MarketMood</h1>
+
       {currentUrl ? (
-        <p>Current URL: {currentUrl}</p>
+        <p className="text-sm text-gray-600 break-all">
+          <span className="font-semibold text-gray-700">URL:</span> {currentUrl}
+        </p>
       ) : (
-        <p>Loading current tab URL...</p>
+        <p className="text-sm text-gray-500">Loading current tab URL...</p>
       )}
-      <div>
-        Ticker Symbol Found! <br/>
-        {ticker}
+
+      <div className="mt-4 p-3 rounded-md border border-gray-200 bg-gray-50">
+        <p className="text-sm text-gray-700 mb-1">Detected Ticker Symbol:</p>
+        {ticker ? (
+          <span className="text-lg font-semibold text-green-600">{ticker}</span>
+        ) : (
+          <span className="text-sm text-gray-500">No ticker detected on this page.</span>
+        )}
       </div>
     </div>
   );

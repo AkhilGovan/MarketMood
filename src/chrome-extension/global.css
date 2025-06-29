@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   margin: 0;
   padding: 0;
@@ -11,4 +12,8 @@
 html {
   min-height: 100%;
   position: relative;
+}
+
+h1{
+  color: blueviolet;
 }
