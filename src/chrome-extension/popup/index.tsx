@@ -25,7 +25,7 @@ export function Popup() {
 
   return (
     <div className="min-w-[300px] p-4 bg-white text-gray-800">
-      <h1 className="text-xl font-bold mb-2 text-blue-600">📈 MarketMood</h1>
+      <h1 className="text-xl font-bold mb-2 text-blue-600">MarketMood</h1>
 
       {currentUrl ? (
         <p className="text-sm text-gray-600 break-all">
