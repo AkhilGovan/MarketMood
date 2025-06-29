@@ -97,4 +97,5 @@ jobs:
           git add src/data/allTickers.ts
           git commit -m "Update generated ticker set" || echo "No changes to commit"
           git pull --rebase
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AkhilGovan/MarketMood.git
+
