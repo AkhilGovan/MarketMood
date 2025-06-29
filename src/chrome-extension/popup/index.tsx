@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCurrentTabUrl } from "./URL/getCurrentTabUrl";
 
-export default function Popup() {
+export function Popup() {
   const [currentUrl, setCurrentUrl] = useState<string | null>(null);
 
   useEffect(() => {
